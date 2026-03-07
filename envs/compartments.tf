@@ -10,8 +10,8 @@ resource "oci_identity_compartment" "parent" {
 
 resource "oci_identity_compartment" "child" {
   compartment_id = oci_identity_compartment.parent.id
-  name           = "Parent"
-  description    = "Parent For oci-security-zones-start-security-bestpractices"
+  name           = "Child"
+  description    = "Child For oci-security-zones-start-security-bestpractices"
   enable_delete  = true
   defined_tags   = local.common_defined_tags
 }
