@@ -2,7 +2,7 @@
 Tag NameSpace (Common)
 ************************************************************/
 resource "oci_identity_tag_namespace" "common" {
-  compartment_id = oci_identity_compartment.workload.id
+  compartment_id = oci_identity_compartment.parent.id
   name           = "Common"
   description    = "NameSpace for Common"
   is_retired     = false
@@ -44,7 +44,7 @@ resource "oci_identity_tag" "key_managedbyterraform" {
 Default Tag
 ************************************************************/
 resource "oci_identity_tag_default" "key_system" {
-  compartment_id    = oci_identity_compartment.workload.id
+  compartment_id    = oci_identity_compartment.parent.id
   tag_definition_id = oci_identity_tag.key_system.id
   value             = "oci-security-zones-start-security-bestpractices"
   # TagがENUMでなく、値を固定しているためfalse
@@ -54,14 +54,14 @@ resource "oci_identity_tag_default" "key_system" {
 }
 
 resource "oci_identity_tag_default" "key_env" {
-  compartment_id    = oci_identity_compartment.workload.id
+  compartment_id    = oci_identity_compartment.parent.id
   tag_definition_id = oci_identity_tag.key_env.id
   value             = "prd"
   is_required       = true
 }
 
 resource "oci_identity_tag_default" "key_managedbyterraform" {
-  compartment_id    = oci_identity_compartment.workload.id
+  compartment_id    = oci_identity_compartment.parent.id
   tag_definition_id = oci_identity_tag.key_managedbyterraform.id
   value             = "true"
   is_required       = true
