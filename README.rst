@@ -1,7 +1,7 @@
 .. image:: ./doc/001samune.png
 
 =====================================================================
-OCI Security Zones で始めるセキュリティベストプラクティス
+OCI Security Zones で実現する予防的統制
 =====================================================================
 * `詳細 <>`_
 
@@ -72,7 +72,7 @@ OCI Security Zones で始めるセキュリティベストプラクティス
   cat <<EOF > config.oci.tfbackend
   bucket = "terraform-working"
   namespace = "テナンシに一意に付与されたネームスペース"
-  key = "oci-security-zones-start-security-bestpractices/terraform.tfstate"
+  key = "oci-security-zones-preventive-controls/terraform.tfstate"
   auth = "SecurityToken"
   config_file_profile = "ADMIN"
   region = "ap-tokyo-1"
